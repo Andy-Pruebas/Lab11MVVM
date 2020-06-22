@@ -71,13 +71,13 @@ namespace LabCalculator.ViewModels
         public ICommand OnClear { protected set; get; }
         public ICommand OnCalculate { protected set; get; }
         public ICommand OnSelectOperator { protected set; get; }
-        public ICommand NumericCommand { protected set; get; }
+        public ICommand SelectNumeric { protected set; get; }
 
         public ViewModelCalculador()
         {
 
             Result = "0";
-            NumericCommand = new Command<String>(
+            SelectNumeric = new Command<String>(
                  execute: (String parameter) =>
                  {
                      if (Result == "0" || currentState < 0)
@@ -110,22 +110,22 @@ namespace LabCalculator.ViewModels
                      if (parameter == "+")
                      {
                          FirstNumber = Int32.Parse(Result);
-                         Operation = "s";
+                         Operation = "S";
                      }
                      if (parameter == "-")
                      {
                          FirstNumber = Int32.Parse(Result);
-                         Operation = "r";
+                         Operation = "R";
                      }
                      if (parameter == "*")
                      {
                          FirstNumber = Int32.Parse(Result);
-                         Operation = "m";
+                         Operation = "M";
                      }
                      if (parameter == "/")
                      {
                          FirstNumber = Int32.Parse(Result);
-                         Operation = "d";
+                         Operation = "D";
                      }
 
                      currentState = -2;
@@ -140,16 +140,16 @@ namespace LabCalculator.ViewModels
 
                 switch (Operation)
                 {
-                    case "s":
+                    case "S":
                         resultOper = FirstNumber + SecondNumber;
                         break;
-                    case "r":
+                    case "R":
                         resultOper = FirstNumber - SecondNumber;
                         break;
-                    case "m":
+                    case "M":
                         resultOper = FirstNumber * SecondNumber;
                         break;
-                    case "d":
+                    case "D":
                         resultOper = FirstNumber / SecondNumber;
                         break;
                 }

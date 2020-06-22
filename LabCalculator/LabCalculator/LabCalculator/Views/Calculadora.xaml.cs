@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+
 namespace LabCalculator.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -15,6 +16,7 @@ namespace LabCalculator.Views
         public Calculadora()
         {
             InitializeComponent();
+            this.BindingContext = new LabCalculator.ViewModels.ViewModelCalculador();
         }
     }
 }
